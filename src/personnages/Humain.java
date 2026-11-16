@@ -4,7 +4,7 @@ public class Humain {
 
 	private String nom;
 	private String boisson;
-	protected int argent;
+	private int argent;
 
 	public Humain(String nom, String boisson, int argent) {
 		this.nom = nom;
@@ -20,11 +20,11 @@ public class Humain {
 		return argent;
 	}
 
-	private void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		argent += gain;
 	}
 
-	private void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		argent -= perte;
 	}
 
