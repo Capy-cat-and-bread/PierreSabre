@@ -33,16 +33,17 @@ public class Humain {
 	}
 
 	public void direBonjour() {
-		String phrase = "Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonFavorite + ".";
-		parler(phrase);
+		parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonFavorite + ".");
 	}
+	
+	// parler directement
 
 	private void repondre(Humain autreHumain) {
 		direBonjour();
 		memoriser(autreHumain);
 	}
 
-	private void memoriser(Humain autreHumain) {
+	protected void memoriser(Humain autreHumain) {
 		if (nbConnaissance < NB_CONNAISSANCE_MAX) {
 			memoire[nbConnaissance] = autreHumain;
 			nbConnaissance++;
@@ -55,20 +56,30 @@ public class Humain {
 	}
 
 	public void boire() {
-		String phrase = "Mmmm, un bon verre de " + boissonFavorite + " ! GLOUPS !";
-		parler(phrase);
+		parler("Mmmm, un bon verre de " + boissonFavorite + " ! GLOUPS !");
 	}
 
 	public void acheter(String bien, int prix) {
-		String phrase;
+		StringBuilder phrase = new StringBuilder();
 		if (argent >= prix) {
-			phrase = "J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " sous.";
+			phrase.append("J'ai ");
+			phrase.append(argent);
+			phrase.append(" sous en poche. Je vais pouvoir m'offrir ");
+			phrase.append(bien);
+			phrase.append(" à ");
+			phrase.append(prix);
+			phrase.append(" sous.");
 			perdreArgent(prix);
 		} else {
-			phrase = "Je n'ai plus que " + argent + " sous en poche. Je ne peux même pas m'offrir " + bien + " à "
-					+ prix + " sous.";
+			phrase.append("Je n'ai plus que ");
+			phrase.append(argent);
+			phrase.append(" sous en poche. Je ne peux même pas m'offrir ");
+			phrase.append(bien);
+			phrase.append(" à ");
+			phrase.append(prix);
+			phrase.append(" sous.");
 		}
-		parler(phrase);
+		parler(phrase.toString());
 	}
 
 	protected void parler(String texte) {

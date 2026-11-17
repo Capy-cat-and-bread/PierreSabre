@@ -3,8 +3,8 @@ package personnages;
 import java.util.Random;
 
 public class Traitre extends Samourai {
+	Random random = new Random();
 	private int niveauTraitrise = 0;
-	private Random random = new Random();
 
 	public Traitre(String seigneur, String nom, String boissonFavorite, int argent) {
 		super(seigneur, nom, boissonFavorite, argent);
@@ -38,12 +38,12 @@ public class Traitre extends Samourai {
 			Humain ami = memoire[random.nextInt(nbConnaissance)];
 			int don = this.getArgent() / 20;
 			String nomAmi = ami.getNom();
-			parler("l faut absolument remonter ma cote de confiance. Je vais faire ami ami avec " + nomAmi + ".");
-			parler("Bonjour l'ami ! Je voudrais vous aider en vous donnant " + don + " sous");
+			parler("Il faut absolument remonter ma cote de confiance. Je vais faire ami ami avec " + nomAmi + ".");
+			parler("Bonjour l'ami ! Je voudrais vous aider en vous donnant " + don + " sous.");
 			ami.gagnerArgent(don);
 			perdreArgent(don);
 			String nom = this.getNom();
-			ami.parler("Merci " + nom + ". Vous êtes quelqu'un de bien");
+			ami.parler("Merci " + nom + ". Vous êtes quelqu'un de bien.");
 			if (niveauTraitrise > 1) {
 				niveauTraitrise--;
 			}

@@ -15,7 +15,6 @@ public class Commercant extends Humain {
 
 	public void recevoir(int argent) {
 		gagnerArgent(argent);
-		String texte = argent + " sous! Je te remercie généreux donateur!";
-		parler(texte);
+		parler(argent + " sous! Je te remercie généreux donateur!");
 	}
 }
