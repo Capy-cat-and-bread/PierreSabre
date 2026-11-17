@@ -40,4 +40,10 @@ public class Yakuza extends Humain {
 		return argentAPerdre;
 	}
 
+	@Override
+	public void direBonjour() {
+		super.direBonjour();
+		parler("Mon clan est celui de " + clan);
+	}
+
 }
